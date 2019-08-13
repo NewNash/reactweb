@@ -1,12 +1,19 @@
 
 const reducer = (state={
-    navItems:[1,2,3,4]
+    navItems:[],
+    tags:[],
+    navActive:false
 },action)=> {
-    if(action.type==='onload'){
-        console.log(action.text)
-        return {...state}
+    switch (action.type) {
+        case 'navdata':
+            return {...state,navItems:action.navItems }
+        case 'tagdata':
+            return {...state,tags:action.tags}
+        case 'navMouseover':
+            return {...state,navActive: true}
+        default:
+            return {...state}
     }
-    return {...state}
 }
 
 export default reducer
