@@ -21,12 +21,8 @@
         li{
             display: inline-block;
             line-height: 20px;
-            padding: 4px 14px;
             margin-right: 8px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background: #fff;
             color: #666;
             font-size: 13px;
             transition: all .3s ease 0s;
@@ -35,12 +31,12 @@
                 color: #555555;
             }
         }
-        li:hover{
-            border: 1px solid #0fe24f;
-            a{
-                color: #e2b01c;
-            }
-        }
+        //li:hover{
+        //    border: 1px solid #0fe24f;
+        //    a{
+        //        color: #e2b01c;
+        //    }
+        //}
     }
 
 }

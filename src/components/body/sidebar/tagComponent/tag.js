@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from 'react-redux'
 import './tagContainer.scss'
+import { Button } from 'antd';
 
 class TagComponent extends React.Component {
     componentDidMount() {
@@ -8,17 +9,16 @@ class TagComponent extends React.Component {
     }
 
     render() {
+        const tags = this.props.tags
         return (
             <div className='tagContainer'>
                 <h3>热门标签</h3>
                     <ul>
-                        {this.props.tags.map(((tag, index) => (
+                        {tags.map((tag,index) => (
                         <li key={index}>
-                            <a href="/">
-                                {tag}
-                            </a>
+                            <Button>{tag}</Button>
                         </li>
-                        )))}
+                        ))}
                     </ul>
 
             </div>

@@ -17,9 +17,12 @@ class Header extends React.Component {
                     <div className="nav">
                         <ul className="navUl">
                             {items.map(item => (
-                                <li key={item._id} className="navItem" onMouseOver={this.props.handleMouseOver} >
+                                <li key={item._id}
+                                    className={this.props.navActive===item.name ?"navItem active":"navItem"}
+                                    onMouseOver={()=>this.props.handleMouseOver(item.name)}
+                                    onMouseOut={this.props.handleMouseLeave}>
                                     <a href="./">{item.name}</a>
-                                    <div className={this.props.navActive?"subNav active":"subNav"}>
+                                    <div className="subNav">
                                         <ul className="subNavUl">
                                             {item.subCategory.map((subItem) => (
                                                 <li key={subItem._id} className="subNavItem">
@@ -46,7 +49,8 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispacth => ({
     handleOnload: () => dispacth({type: 'getNavItemsAsync'}),
-    handleMouseOver: () => dispacth({type: 'navMouseover'}),
+    handleMouseOver: (name) => dispacth({type: 'navMouseover',activeItem:name}),
+    handleMouseLeave:()=>dispacth({type:'navMouseOut'})
 })
 Header = connect(mapStateToProps, mapDispatchToProps)(Header)
 export default Header
