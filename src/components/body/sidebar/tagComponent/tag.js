@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from 'react-redux'
 import './tagContainer.scss'
 import { Button } from 'antd';
+import {Link} from 'react-router-dom'
 
 class TagComponent extends React.Component {
     componentDidMount() {
@@ -16,7 +17,7 @@ class TagComponent extends React.Component {
                     <ul>
                         {tags.map((tag,index) => (
                         <li key={index}>
-                            <Button>{tag}</Button>
+                            <Link to={"/tag/"+tag}><Button>{tag}</Button></Link>
                         </li>
                         ))}
                     </ul>
